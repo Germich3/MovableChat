@@ -13,3 +13,10 @@
     <br> 
 </p>
 
+## Dependencies <a name="Dependencies"></a>
+
+#### Requires: 
+- <a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config">Cloth Config</a>
+    
+#### Optional (GUI Config): 
+- <a href="https://www.curseforge.com/minecraft/mc-mods/modmenu">Mod Menu</a>
