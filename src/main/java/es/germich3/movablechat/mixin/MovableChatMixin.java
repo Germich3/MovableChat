@@ -22,9 +22,9 @@ public class MovableChatMixin {
 		MovableChatConfig config = AutoConfig.getConfigHolder(MovableChatConfig.class).getConfig();
 		if (config.absorptionAutoMove) {
 			ClientPlayerEntity player = this.client.player;
-			if(player == null || player.isCreative() || player.isSpectator()) return 0;
-			int offset = player.getArmor()>0?10:0;
-			if(player.getAbsorptionAmount()>0) offset += 10;
+			if (player == null || player.isCreative() || player.isSpectator()) return 0;
+			int offset = player.getArmor() > 0 ? 10 : 0;
+			if (player.getAbsorptionAmount() > 0) offset += 10;
 			return offset;
 		}
 		else {
