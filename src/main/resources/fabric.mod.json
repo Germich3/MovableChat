@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "movablechat",
+  "version": "${version}",
+  "name": "Movable Chat",
+  "description": "Move Chat HUD",
+  "authors": [
+    "Germich3"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "MIT",
+  "icon": "assets/movablechat/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "es.germich3.movablechat.MovableChat"
+    ],
+    "modmenu": [
+      "es.germich3.movablechat.config.MovableChatGui"
+    ]
+  },
+  "mixins": [
+    "movablechat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
