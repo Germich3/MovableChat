@@ -22,9 +22,9 @@
 ## Images
 
 #### Automatic
-<img src="https://github.com/Germich3/MovableChat/blob/main/images/configA.png?raw=true" />
-<img src="https://github.com/Germich3/MovableChat/blob/main/images/gameA.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/master/images/configA.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/master/images/gameA.png?raw=true" />
 
 #### Manual
-<img src="https://github.com/Germich3/MovableChat/blob/main/images/configM.png?raw=true" />
-<img src="https://github.com/Germich3/MovableChat/blob/main/images/gameM.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/master/images/configM.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/master/images/gameM.png?raw=true" />
