@@ -18,3 +18,13 @@
 #### Requires: 
 - <a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config">Cloth Config</a>
 - <a href="https://www.curseforge.com/minecraft/mc-mods/modmenu">Mod Menu</a>
+
+## Images
+
+#### Automatic
+<img src="https://github.com/Germich3/MovableChat/blob/main/images/configA.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/main/images/gameA.png?raw=true" />
+
+#### Manual
+<img src="https://github.com/Germich3/MovableChat/blob/main/images/configM.png?raw=true" />
+<img src="https://github.com/Germich3/MovableChat/blob/main/images/gameM.png?raw=true" />
