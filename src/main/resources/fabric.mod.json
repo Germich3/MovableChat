@@ -19,7 +19,7 @@
       "es.germich3.movablechat.MovableChat"
     ],
     "modmenu": [
-      "es.germich3.movablechat.config.MovableChatGui"
+      "es.germich3.movablechat.config.ModMenuImpl"
     ]
   },
   "mixins": [

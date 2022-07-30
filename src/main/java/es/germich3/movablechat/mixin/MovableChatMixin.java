@@ -1,17 +1,15 @@
 package es.germich3.movablechat.mixin;
 
-import es.germich3.movablechat.config.MovableChatConfig;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
+import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-import org.spongepowered.asm.mixin.injection.ModifyConstant;
-import net.minecraft.client.network.ClientPlayerEntity;
+
+import static es.germich3.movablechat.MovableChat.CONFIG;
 
 @Mixin(ChatHud.class)
 public class MovableChatMixin {
@@ -19,16 +17,22 @@ public class MovableChatMixin {
 	@Shadow @Final private MinecraftClient client;
 
 	private int getOffset() {
-		MovableChatConfig config = AutoConfig.getConfigHolder(MovableChatConfig.class).getConfig();
-		if (config.absorptionAutoMove) {
+		if (CONFIG.absorptionAutoMove) {
 			ClientPlayerEntity player = this.client.player;
-			if (player == null || player.isCreative() || player.isSpectator()) return 0;
-			int offset = player.getArmor() > 0 ? 10 : 0;
-			if (player.getAbsorptionAmount() > 0) offset += 10;
+			int offset = 0;
+			if (player == null || player.isCreative() || player.isSpectator()) {
+				return offset;
+			}
+			if (player.getArmor() > 0) {
+				offset += 10;
+			}
+			if (player.getAbsorptionAmount() > 0) {
+				offset += 10;
+			}
 			return offset;
 		}
 		else {
-			return config.verticalityChat;
+			return CONFIG.verticalityChat;
 		}
 	}
 
@@ -39,11 +43,6 @@ public class MovableChatMixin {
 	))
 	private double offsetY(double y) {
 		return y - getOffset();
-	}
-
-	@ModifyConstant(method = "getTextStyleAt", constant = @Constant(doubleValue = 40.0))
-	private double textBottomOffset(double original) {
-		return original + getOffset();
 	}
 
 }
