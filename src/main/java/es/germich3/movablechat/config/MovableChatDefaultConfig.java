@@ -1,6 +1,6 @@
 package es.germich3.movablechat.config;
 
 public class MovableChatDefaultConfig {
-    boolean isAbsorptionAutoMoveEnabled = true;
-    int verticalityChat = 0;
+    final boolean isAbsorptionAutoMoveEnabled = true;
+    final int verticalityChat = 0;
 }
