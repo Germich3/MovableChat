@@ -20,15 +20,14 @@ public class MovableChatMixin {
 
 	private int getOffset() {
 		if (CONFIG.isAbsorptionAutoMoveEnabled()) {
-			ClientPlayerEntity player = this.client.player;
 			int offset = 0;
-			if (player == null || player.isCreative() || player.isSpectator()) {
+			if (client.player == null || client.player.isCreative() || client.player.isSpectator()) {
 				return offset;
 			}
-			if (player.getArmor() > 0) {
+			if (client.player.getArmor() > 0) {
 				offset += 10;
 			}
-			if (player.getAbsorptionAmount() > 0) {
+			if (client.player.getAbsorptionAmount() > 0) {
 				offset += 10;
 			}
 			return offset;
