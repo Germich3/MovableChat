@@ -8,7 +8,7 @@ import java.lang.reflect.Field;
 
 public class MovableChatConfig {
 
-    private Object config = null;
+    private final Object config;
 
     public MovableChatConfig() {
         if (FabricLoader.getInstance().isModLoaded("cloth-config2")) {
