@@ -1,19 +1,40 @@
 package es.germich3.movablechat.config;
 
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
+import net.fabricmc.loader.api.FabricLoader;
 
-@Config(name = "movablechat")
-public class MovableChatConfig implements ConfigData {
+import java.lang.reflect.Field;
 
-    @ConfigEntry.Category("Automatic")
-    @ConfigEntry.Gui.PrefixText
-    public boolean absorptionAutoMove = true;
+public class MovableChatConfig {
 
-    @ConfigEntry.Category("Manual")
-    @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.BoundedDiscrete(min = -25, max = 795)
-    public int verticalityChat = 0;
+    private Object config = null;
+
+    public MovableChatConfig() {
+        if (FabricLoader.getInstance().isModLoaded("cloth-config2")) {
+            config = AutoConfig.register(MovableChatClothConfig.class, JanksonConfigSerializer::new).getConfig();
+        }
+        else {
+            config = new MovableChatDefaultConfig();
+        }
+    }
+
+    public boolean isAbsorptionAutoMoveEnabled() {
+        try {
+            Field field = config.getClass().getDeclaredField("isAbsorptionAutoMoveEnabled");
+            return (boolean) field.get(config);
+        } catch (Exception e) {
+            return new MovableChatDefaultConfig().isAbsorptionAutoMoveEnabled;
+        }
+    }
+
+    public int getVerticalityChat() {
+        try {
+            Field field = config.getClass().getDeclaredField("verticalityChat");
+            return (int) field.get(config);
+        } catch (Exception e) {
+            return new MovableChatDefaultConfig().verticalityChat;
+        }
+    }
 
 }

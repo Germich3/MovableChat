@@ -2,9 +2,11 @@
   "modmenu.descriptionTranslation.movablechat": "Movable Chat HUD",
   "text.autoconfig.movablechat.title": "MovableChat configuration",
   "text.autoconfig.movablechat.category.Automatic":"Automatic",
-  "text.autoconfig.movablechat.option.absorptionAutoMove.@PrefixText": "Adjust automatically the chat to the amount of armor absorption if displayed",
-  "text.autoconfig.movablechat.option.absorptionAutoMove": "Enable/Disable",
+  "text.autoconfig.movablechat.option.isAbsorptionAutoMoveEnabled.@PrefixText": "Adjust automatically the chat to the amount of armor absorption if displayed",
+  "text.autoconfig.movablechat.option.isAbsorptionAutoMoveEnabled": "Enable/Disable",
   "text.autoconfig.movablechat.category.Manual":"Manual",
   "text.autoconfig.movablechat.option.verticalityChat.@PrefixText": "The option below does not apply if the automatic option is enabled",
-  "text.autoconfig.movablechat.option.verticalityChat": "Size"
+  "text.autoconfig.movablechat.option.verticalityChat": "Size",
+  "text.movablechat.config.error.message": "Couldn't open config menu, please install Cloth Config",
+  "text.movablechat.config.error.clothconfig": "https://www.curseforge.com/minecraft/mc-mods/cloth-config"
 }

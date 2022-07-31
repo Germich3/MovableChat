@@ -17,7 +17,7 @@ public class MovableChatMixin {
 	@Shadow @Final private MinecraftClient client;
 
 	private int getOffset() {
-		if (CONFIG.absorptionAutoMove) {
+		if (CONFIG.isAbsorptionAutoMoveEnabled()) {
 			ClientPlayerEntity player = this.client.player;
 			int offset = 0;
 			if (player == null || player.isCreative() || player.isSpectator()) {
@@ -32,7 +32,7 @@ public class MovableChatMixin {
 			return offset;
 		}
 		else {
-			return CONFIG.verticalityChat;
+			return CONFIG.getVerticalityChat();
 		}
 	}
 

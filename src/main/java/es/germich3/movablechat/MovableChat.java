@@ -1,6 +1,5 @@
 package es.germich3.movablechat;
 
-import es.germich3.movablechat.config.ClothConfigImpl;
 import es.germich3.movablechat.config.MovableChatConfig;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -17,7 +16,6 @@ public class MovableChat implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		ClothConfigImpl.loadConfig();
 		LOGGER.info("MovableChat loaded successfully");
 	}
 }
