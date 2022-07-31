@@ -15,7 +15,7 @@
 
 ## Dependencies <a name="Dependencies"></a>
 
-#### Requires: 
+#### Optional for configuration (not necessarily required for default use): 
 - <a href="https://www.curseforge.com/minecraft/mc-mods/cloth-config">Cloth Config</a>
 - <a href="https://www.curseforge.com/minecraft/mc-mods/modmenu">Mod Menu</a>
 
