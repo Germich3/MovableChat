@@ -8,19 +8,27 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 @Config(name = MovableChat.MOD_ID)
 public class MovableChatClothConfig implements ConfigData {
 
-    @ConfigEntry.Category("Automatic")
+    @ConfigEntry.Category("automatic")
     @ConfigEntry.Gui.PrefixText
     boolean isAbsorptionAutoMoveEnabled;
 
-    @ConfigEntry.Category("Manual")
+    @ConfigEntry.Category("manual")
     @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.BoundedDiscrete(min = -25, max = 795)
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 50)
     int verticalityChat;
+    @ConfigEntry.Category("manual")
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+    int multiplierChat;
+    @ConfigEntry.Category("manual")
+    @ConfigEntry.BoundedDiscrete(min = -25, max = 25)
+    int plusChat;
 
     public MovableChatClothConfig() {
         MovableChatDefaultConfig defaultConfig = new MovableChatDefaultConfig();
         this.isAbsorptionAutoMoveEnabled = defaultConfig.isAbsorptionAutoMoveEnabled;
         this.verticalityChat = defaultConfig.verticalityChat;
+        this.multiplierChat = defaultConfig.multiplierChat;
+        this.plusChat = defaultConfig.plusChat;
     }
 
 }

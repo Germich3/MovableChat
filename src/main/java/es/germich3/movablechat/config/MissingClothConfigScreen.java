@@ -30,7 +30,7 @@ public class MissingClothConfigScreen extends WarningScreen {
         Text text = Text.translatable("text.movablechat.config.error.clothconfig");
         int w = this.textRenderer.getWidth(text);
         int h = 10;
-        int x = this.width / 2 - this.textRenderer.getWidth(text) / 2;
+        int x = (this.width / 2) - (w / 2);
         int y = (this.height / 2);
         this.addDrawableChild(new PressableTextWidget(x, y, w, h, text, button -> client.keyboard.setClipboard(text.getString()), this.textRenderer));
     }

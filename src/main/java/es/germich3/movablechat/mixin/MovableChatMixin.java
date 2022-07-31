@@ -14,7 +14,9 @@ import static es.germich3.movablechat.MovableChat.CONFIG;
 @Mixin(ChatHud.class)
 public class MovableChatMixin {
 
-	@Shadow @Final private MinecraftClient client;
+	@Shadow
+	@Final
+	private MinecraftClient client;
 
 	private int getOffset() {
 		if (CONFIG.isAbsorptionAutoMoveEnabled()) {
@@ -32,7 +34,7 @@ public class MovableChatMixin {
 			return offset;
 		}
 		else {
-			return CONFIG.getVerticalityChat();
+			return (CONFIG.getVerticalityChat() * CONFIG.getMultiplierChat()) + CONFIG.getPlusChat();
 		}
 	}
 

@@ -37,4 +37,22 @@ public class MovableChatConfig {
         }
     }
 
+    public int getMultiplierChat() {
+        try {
+            Field field = config.getClass().getDeclaredField("multiplierChat");
+            return (int) field.get(config);
+        } catch (Exception e) {
+            return new MovableChatDefaultConfig().multiplierChat;
+        }
+    }
+
+    public int getPlusChat() {
+        try {
+            Field field = config.getClass().getDeclaredField("plusChat");
+            return (int) field.get(config);
+        } catch (Exception e) {
+            return new MovableChatDefaultConfig().plusChat;
+        }
+    }
+
 }
