@@ -2,14 +2,13 @@ package es.germich3.movablechat.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
-import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
-import static es.germich3.movablechat.MovableChat.CONFIG;
+import static es.germich3.movablechat.config.MovableChatConfig.getConfig;
 
 @Mixin(ChatHud.class)
 public class MovableChatMixin {
@@ -19,7 +18,7 @@ public class MovableChatMixin {
 	private MinecraftClient client;
 
 	private int getOffset() {
-		if (CONFIG.isAbsorptionAutoMoveEnabled()) {
+		if (getConfig().isAbsorptionAutoMoveEnabled()) {
 			int offset = 0;
 			if (client.player == null || client.player.isCreative() || client.player.isSpectator()) {
 				return offset;
@@ -33,7 +32,7 @@ public class MovableChatMixin {
 			return offset;
 		}
 		else {
-			return (CONFIG.getVerticalityChat() * CONFIG.getMultiplierChat()) + CONFIG.getPlusChat();
+			return (getConfig().getVerticalityChat() * getConfig().getMultiplierChat()) + getConfig().getPlusChat();
 		}
 	}
 

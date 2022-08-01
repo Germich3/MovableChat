@@ -4,15 +4,24 @@ import java.lang.reflect.Field;
 
 public class MovableChatConfig {
 
+    private static MovableChatConfig singleton;
+
     private final Object config;
 
-    public MovableChatConfig() {
+    private MovableChatConfig() {
         if (ClothConfigImpl.isInstalled()) {
             config = ClothConfigImpl.loadConfig();
         }
         else {
             config = new MovableChatDefaultConfig();
         }
+    }
+
+    public static MovableChatConfig getConfig() {
+        if (singleton == null) {
+            singleton = new MovableChatConfig();
+        }
+        return singleton;
     }
 
     public boolean isAbsorptionAutoMoveEnabled() {
