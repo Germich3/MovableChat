@@ -1,9 +1,5 @@
 package es.germich3.movablechat.config;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import net.fabricmc.loader.api.FabricLoader;
-
 import java.lang.reflect.Field;
 
 public class MovableChatConfig {
@@ -11,8 +7,8 @@ public class MovableChatConfig {
     private final Object config;
 
     public MovableChatConfig() {
-        if (FabricLoader.getInstance().isModLoaded("cloth-config2")) {
-            config = AutoConfig.register(MovableChatClothConfig.class, JanksonConfigSerializer::new).getConfig();
+        if (ClothConfigImpl.isInstalled()) {
+            config = ClothConfigImpl.loadConfig();
         }
         else {
             config = new MovableChatDefaultConfig();

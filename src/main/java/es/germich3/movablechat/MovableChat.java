@@ -9,7 +9,7 @@ public class MovableChat implements ModInitializer {
 
 	public static final String MOD_ID = "movablechat";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static MovableChatConfig CONFIG = new MovableChatConfig();
+	public static final MovableChatConfig CONFIG = new MovableChatConfig();
 
 	@Override
 	public void onInitialize() {
