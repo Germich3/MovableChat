@@ -1,14 +1,14 @@
 {
   "modmenu.descriptionTranslation.movablechat": "Movable Chat HUD",
-  "text.autoconfig.movablechat.title": "MovableChat configuration",
+  "text.autoconfig.movablechat.title": "MovableChat Configuration",
   "text.autoconfig.movablechat.category.automatic":"Automatic",
-  "text.autoconfig.movablechat.option.isAbsorptionAutoMoveEnabled.@PrefixText": "Adjust automatically the chat to the amount of armor absorption if displayed",
-  "text.autoconfig.movablechat.option.isAbsorptionAutoMoveEnabled": "Enable/Disable",
+  "text.autoconfig.movablechat.option.automatic.@PrefixText": "Adjust automatically the chat to the amount of armor absorption if displayed",
+  "text.autoconfig.movablechat.option.automatic.isAbsorptionAutoMoveEnabled": "Enable/Disable",
   "text.autoconfig.movablechat.category.manual":"Manual",
-  "text.autoconfig.movablechat.option.verticalityChat.@PrefixText": "The option below does not apply if the automatic option is enabled",
-  "text.autoconfig.movablechat.option.verticalityChat": "Verticality",
-  "text.autoconfig.movablechat.option.multiplierChat": "Multiplier for verticality",
-  "text.autoconfig.movablechat.option.plusChat": "Add/Remove some pixels",
+  "text.autoconfig.movablechat.option.manual.@PrefixText": "The options below does not apply if the automatic option is enabled",
+  "text.autoconfig.movablechat.option.manual.verticalityChat": "Verticality",
+  "text.autoconfig.movablechat.option.manual.multiplierChat": "Multiplier for Verticality",
+  "text.autoconfig.movablechat.option.manual.plusChat": "Add/Remove some pixels",
   "text.movablechat.config.error.message": "Couldn't open config menu, please install Cloth Config",
   "text.movablechat.config.error.clothconfig": "https://www.curseforge.com/minecraft/mc-mods/cloth-config"
 }

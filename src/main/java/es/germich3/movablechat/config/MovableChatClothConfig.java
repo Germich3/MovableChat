@@ -10,25 +10,27 @@ public class MovableChatClothConfig implements ConfigData {
 
     @ConfigEntry.Category("automatic")
     @ConfigEntry.Gui.PrefixText
-    boolean isAbsorptionAutoMoveEnabled;
+    @ConfigEntry.Gui.TransitiveObject
+    public Automatic automatic = new Automatic();
 
     @ConfigEntry.Category("manual")
     @ConfigEntry.Gui.PrefixText
-    @ConfigEntry.BoundedDiscrete(min = 0, max = 50)
-    int verticalityChat;
-    @ConfigEntry.Category("manual")
-    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
-    int multiplierChat;
-    @ConfigEntry.Category("manual")
-    @ConfigEntry.BoundedDiscrete(min = -25, max = 25)
-    int plusChat;
+    @ConfigEntry.Gui.TransitiveObject
+    public Manual manual = new Manual();
 
-    public MovableChatClothConfig() {
-        MovableChatDefaultConfig defaultConfig = new MovableChatDefaultConfig();
-        this.isAbsorptionAutoMoveEnabled = defaultConfig.isAbsorptionAutoMoveEnabled;
-        this.verticalityChat = defaultConfig.verticalityChat;
-        this.multiplierChat = defaultConfig.multiplierChat;
-        this.plusChat = defaultConfig.plusChat;
+    public static class Automatic {
+        public boolean isAbsorptionAutoMoveEnabled = true;
+    }
+
+    public static class Manual {
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 50)
+        public int verticalityChat = 0;
+
+        @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+        public int multiplierChat = 1;
+
+        @ConfigEntry.BoundedDiscrete(min = -25, max = 25)
+        public int plusChat = 0;
     }
 
 }

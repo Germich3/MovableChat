@@ -1,11 +1,12 @@
-package es.germich3.movablechat.config;
+package es.germich3.movablechat.api.clothconfig;
 
+import es.germich3.movablechat.config.MovableChatClothConfig;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.Screen;
 
-public class ClothConfigImpl {
+public class ClothConfig {
 
     public static boolean isInstalled() {
         return FabricLoader.getInstance().isModLoaded("cloth-config2");

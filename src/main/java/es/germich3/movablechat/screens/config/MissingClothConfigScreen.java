@@ -1,4 +1,4 @@
-package es.germich3.movablechat.config;
+package es.germich3.movablechat.screens.config;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.WarningScreen;
@@ -11,11 +11,11 @@ public class MissingClothConfigScreen extends WarningScreen {
 
     private final Screen previousScreen;
 
-    protected MissingClothConfigScreen(Screen previousScreen) {
+    public MissingClothConfigScreen(Screen previousScreen) {
         super(
             ScreenTexts.EMPTY,
             Text.translatable("text.movablechat.config.error.message"),
-            Text.translatable("text.movablechat.config.error.message")
+            ScreenTexts.EMPTY
         );
         this.previousScreen = previousScreen;
     }

@@ -1,63 +1,24 @@
 package es.germich3.movablechat.config;
 
-import java.lang.reflect.Field;
+import es.germich3.movablechat.api.clothconfig.ClothConfig;
 
 public class MovableChatConfig {
 
-    private static MovableChatConfig singleton;
+    private static final MovableChatConfig singleton = new MovableChatConfig();
 
-    private final Object config;
+    private final MovableChatClothConfig config;
 
     private MovableChatConfig() {
-        if (ClothConfigImpl.isInstalled()) {
-            config = ClothConfigImpl.loadConfig();
+        if (ClothConfig.isInstalled()) {
+            config = ClothConfig.loadConfig();
         }
         else {
-            config = new MovableChatDefaultConfig();
+            config = new MovableChatClothConfig();
         }
     }
 
-    public static MovableChatConfig getConfig() {
-        if (singleton == null) {
-            singleton = new MovableChatConfig();
-        }
-        return singleton;
-    }
-
-    public boolean isAbsorptionAutoMoveEnabled() {
-        try {
-            Field field = config.getClass().getDeclaredField("isAbsorptionAutoMoveEnabled");
-            return (boolean) field.get(config);
-        } catch (Exception e) {
-            return new MovableChatDefaultConfig().isAbsorptionAutoMoveEnabled;
-        }
-    }
-
-    public int getVerticalityChat() {
-        try {
-            Field field = config.getClass().getDeclaredField("verticalityChat");
-            return (int) field.get(config);
-        } catch (Exception e) {
-            return new MovableChatDefaultConfig().verticalityChat;
-        }
-    }
-
-    public int getMultiplierChat() {
-        try {
-            Field field = config.getClass().getDeclaredField("multiplierChat");
-            return (int) field.get(config);
-        } catch (Exception e) {
-            return new MovableChatDefaultConfig().multiplierChat;
-        }
-    }
-
-    public int getPlusChat() {
-        try {
-            Field field = config.getClass().getDeclaredField("plusChat");
-            return (int) field.get(config);
-        } catch (Exception e) {
-            return new MovableChatDefaultConfig().plusChat;
-        }
+    public static MovableChatClothConfig getConfig() {
+        return singleton.config;
     }
 
 }
