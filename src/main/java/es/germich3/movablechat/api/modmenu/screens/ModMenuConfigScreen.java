@@ -1,4 +1,4 @@
-package es.germich3.movablechat.screens.api.modmenu;
+package es.germich3.movablechat.api.modmenu.screens;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
