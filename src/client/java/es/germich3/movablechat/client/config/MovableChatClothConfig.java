@@ -1,11 +1,11 @@
-package es.germich3.movablechat.config;
+package es.germich3.movablechat.client.config;
 
-import es.germich3.movablechat.MovableChat;
+import es.germich3.movablechat.client.MovableChatClient;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-@Config(name = MovableChat.MOD_ID)
+@Config(name = MovableChatClient.MOD_ID)
 public class MovableChatClothConfig implements ConfigData {
 
     @ConfigEntry.Category("automatic")

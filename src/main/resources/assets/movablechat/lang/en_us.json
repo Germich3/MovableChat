@@ -10,5 +10,6 @@
   "text.autoconfig.movablechat.option.multiplierChat": "Multiplier for verticality",
   "text.autoconfig.movablechat.option.plusChat": "Add/Remove some pixels",
   "text.movablechat.config.error.message": "Couldn't open config menu, please install Cloth Config",
+  "text.movablechat.config.error.clipboard": "Copied to clipboard!",
   "text.movablechat.config.error.clothconfig": "https://www.curseforge.com/minecraft/mc-mods/cloth-config"
 }

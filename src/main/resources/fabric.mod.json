@@ -18,18 +18,25 @@
     "main": [
       "es.germich3.movablechat.MovableChat"
     ],
+    "client": [
+      "es.germich3.movablechat.client.MovableChatClient"
+    ],
     "modmenu": [
-      "es.germich3.movablechat.config.ModMenuImpl"
+      "es.germich3.movablechat.client.apis.modmenu.ModMenuImpl"
     ]
   },
   "mixins": [
-    "movablechat.mixins.json"
+    "movablechat.mixins.json",
+    {
+      "config": "movablechat.client.mixins.json",
+      "environment": "client"
+    }
   ],
   "depends": {
-    "fabricloader": ">=0.14.6",
-    "fabric": "*",
-    "minecraft": "~1.19",
-    "java": ">=17"
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.1.2",
+    "java": ">=25",
+    "fabric-api": "*"
   },
   "suggests": {
     "another-mod": "*"

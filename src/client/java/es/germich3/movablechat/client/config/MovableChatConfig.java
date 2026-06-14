@@ -1,4 +1,6 @@
-package es.germich3.movablechat.config;
+package es.germich3.movablechat.client.config;
+
+import es.germich3.movablechat.client.apis.clothconfig.ClothConfigImpl;
 
 import java.lang.reflect.Field;
 

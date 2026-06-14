@@ -1,4 +1,4 @@
-package es.germich3.movablechat.config;
+package es.germich3.movablechat.client.config;
 
 public class MovableChatDefaultConfig {
     final boolean isAbsorptionAutoMoveEnabled = true;
