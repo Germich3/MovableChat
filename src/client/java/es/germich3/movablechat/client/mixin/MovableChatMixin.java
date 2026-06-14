@@ -4,16 +4,23 @@ import es.germich3.movablechat.client.config.MovableChatConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ChatComponent;
 import org.joml.Matrix3x2f;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Consumer;
 
 @Mixin(ChatComponent.class)
-public class MovableChatMixin {
+public abstract class MovableChatMixin {
 
-	private final Minecraft minecraft = Minecraft.getInstance();
+	@Shadow
+	@Final
+	private Minecraft minecraft;
+
+	@Shadow
+	protected abstract double getScale();
 
 	private int getOffset() {
 		if (MovableChatConfig.getConfig().isAbsorptionAutoMoveEnabled()) {
@@ -46,7 +53,7 @@ public class MovableChatMixin {
 		)
 	)
 	private void redirectUpdatePose(ChatComponent.ChatGraphicsAccess graphics, Consumer<Matrix3x2f> consumer) {
-		float scale = (float) (double) this.minecraft.options.chatScale().get();
+		float scale = (float) getScale();
 		graphics.updatePose(
 				(pose) -> {
 					pose.scale(scale, scale);
