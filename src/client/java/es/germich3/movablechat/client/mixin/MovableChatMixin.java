@@ -52,7 +52,7 @@ public abstract class MovableChatMixin {
 	private void wrapUpdatePose(ChatComponent.ChatGraphicsAccess graphics, Consumer<Matrix3x2f> originalConsumer, Operation<Void> original) {
 		Consumer<Matrix3x2f> modified = pose -> {
 			originalConsumer.accept(pose);
-			pose.translate(0.0F, 0.0F - getOffset());
+			pose.translate(0.0F, -getOffset());
 		};
 		original.call(graphics, modified);
 	}
