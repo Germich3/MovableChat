@@ -1,5 +1,7 @@
 package es.germich3.movablechat.client.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import es.germich3.movablechat.client.config.MovableChatConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ChatComponent;
@@ -8,7 +10,6 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.function.Consumer;
 
@@ -18,9 +19,6 @@ public abstract class MovableChatMixin {
 	@Shadow
 	@Final
 	private Minecraft minecraft;
-
-	@Shadow
-	protected abstract double getScale();
 
 	private int getOffset() {
 		if (MovableChatConfig.getConfig().isAbsorptionAutoMoveEnabled()) {
@@ -44,22 +42,19 @@ public abstract class MovableChatMixin {
 		}
 	}
 
-	@Redirect(
-		method = "extractRenderState(Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;IILnet/minecraft/client/gui/components/ChatComponent$DisplayMode;)V",
-		at = @At(
-				value = "INVOKE",
-				target = "Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;updatePose(Ljava/util/function/Consumer;)V",
-				ordinal = 0
-		)
+	@WrapOperation(
+			method = "extractRenderState(Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;IILnet/minecraft/client/gui/components/ChatComponent$DisplayMode;)V",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;updatePose(Ljava/util/function/Consumer;)V"
+			)
 	)
-	private void redirectUpdatePose(ChatComponent.ChatGraphicsAccess graphics, Consumer<Matrix3x2f> consumer) {
-		float scale = (float) getScale();
-		graphics.updatePose(
-				(pose) -> {
-					pose.scale(scale, scale);
-					pose.translate(4.0F, -getOffset());
-				}
-		);
+	private void wrapUpdatePose(ChatComponent.ChatGraphicsAccess graphics, Consumer<Matrix3x2f> originalConsumer, Operation<Void> original) {
+		Consumer<Matrix3x2f> modified = pose -> {
+			originalConsumer.accept(pose);
+			pose.translate(0.0F, 0.0F - getOffset());
+		};
+		original.call(graphics, modified);
 	}
 
 }
