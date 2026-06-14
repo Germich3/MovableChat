@@ -43,11 +43,11 @@ public abstract class MovableChatMixin {
 	}
 
 	@WrapOperation(
-			method = "extractRenderState(Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;IILnet/minecraft/client/gui/components/ChatComponent$DisplayMode;)V",
-			at = @At(
-					value = "INVOKE",
-					target = "Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;updatePose(Ljava/util/function/Consumer;)V"
-			)
+		method = "extractRenderState(Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;IILnet/minecraft/client/gui/components/ChatComponent$DisplayMode;)V",
+		at = @At(
+			value = "INVOKE",
+			target = "Lnet/minecraft/client/gui/components/ChatComponent$ChatGraphicsAccess;updatePose(Ljava/util/function/Consumer;)V"
+		)
 	)
 	private void wrapUpdatePose(ChatComponent.ChatGraphicsAccess graphics, Consumer<Matrix3x2f> originalConsumer, Operation<Void> original) {
 		Consumer<Matrix3x2f> modified = pose -> {
