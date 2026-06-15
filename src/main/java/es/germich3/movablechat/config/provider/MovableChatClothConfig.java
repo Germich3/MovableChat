@@ -1,12 +1,12 @@
-package es.germich3.movablechat.client.config;
+package es.germich3.movablechat.config.provider;
 
-import es.germich3.movablechat.client.MovableChatClient;
+import es.germich3.movablechat.MovableChat;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
-@Config(name = MovableChatClient.MOD_ID)
-public class MovableChatClothConfig implements ConfigData {
+@Config(name = MovableChat.MOD_ID)
+public class MovableChatClothConfig implements MovableChatConfigProvider, ConfigData {
 
     @ConfigEntry.Category("automatic")
     @ConfigEntry.Gui.PrefixText
@@ -29,6 +29,26 @@ public class MovableChatClothConfig implements ConfigData {
         this.verticalityChat = defaultConfig.verticalityChat;
         this.multiplierChat = defaultConfig.multiplierChat;
         this.plusChat = defaultConfig.plusChat;
+    }
+
+    @Override
+    public boolean isAbsorptionAutoMoveEnabled() {
+        return isAbsorptionAutoMoveEnabled;
+    }
+
+    @Override
+    public int getVerticalityChat() {
+        return verticalityChat;
+    }
+
+    @Override
+    public int getMultiplierChat() {
+        return multiplierChat;
+    }
+
+    @Override
+    public int getPlusChat() {
+        return plusChat;
     }
 
 }
