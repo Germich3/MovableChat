@@ -2,7 +2,7 @@ package es.germich3.movablechat.client.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import es.germich3.movablechat.client.config.MovableChatConfig;
+import es.germich3.movablechat.config.MovableChatConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ChatComponent;
 import org.joml.Matrix3x2f;
