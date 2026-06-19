@@ -21,24 +21,28 @@ public abstract class MovableChatMixin {
 	@Unique
 	private int getOffset() {
 		if (MovableChatConfig.getConfig().isAbsorptionAutoMoveEnabled()) {
-			int offset = 0;
-			if (minecraft.player == null || minecraft.player.isCreative() || minecraft.player.isSpectator()) {
-				return offset;
-			}
-			if (minecraft.player.getArmorValue() > 0) {
-				offset += 10;
-			}
-			if (minecraft.player.getAbsorptionAmount() > 0) {
-				offset += 10;
-			}
+			return getOffsetCalcByArmorAbsorption();
+		}
+		int verticalityChat = MovableChatConfig.getConfig().getVerticalityChat();
+		int multiplierChat = MovableChatConfig.getConfig().getMultiplierChat();
+		int plusChat = MovableChatConfig.getConfig().getPlusChat();
+		int offsetCalcByArmorAbsorption = MovableChatConfig.getConfig().isRecalcByArmorAbsorption() ? getOffsetCalcByArmorAbsorption() : 0;
+		return (verticalityChat * multiplierChat) + plusChat + offsetCalcByArmorAbsorption;
+	}
+
+	@Unique
+	private int getOffsetCalcByArmorAbsorption() {
+		int offset = 0;
+		if (minecraft.player == null || minecraft.player.isCreative() || minecraft.player.isSpectator()) {
 			return offset;
 		}
-		else {
-			int verticalityChat = MovableChatConfig.getConfig().getVerticalityChat();
-			int multiplierChat = MovableChatConfig.getConfig().getMultiplierChat();
-			int plusChat = MovableChatConfig.getConfig().getPlusChat();
-			return (verticalityChat * multiplierChat) + plusChat;
+		if (minecraft.player.getArmorValue() > 0) {
+			offset += 10;
 		}
+		if (minecraft.player.getAbsorptionAmount() > 0) {
+			offset += 10;
+		}
+		return offset;
 	}
 
 	@Inject(

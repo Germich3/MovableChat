@@ -22,6 +22,8 @@ public class MovableChatClothConfig implements MovableChatConfigProvider, Config
     @ConfigEntry.Category("manual")
     @ConfigEntry.BoundedDiscrete(min = -25, max = 25)
     int plusChat;
+    @ConfigEntry.Category("manual")
+    boolean isRecalcByArmorAbsorption;
 
     public MovableChatClothConfig() {
         MovableChatDefaultConfig defaultConfig = new MovableChatDefaultConfig();
@@ -29,6 +31,7 @@ public class MovableChatClothConfig implements MovableChatConfigProvider, Config
         this.verticalityChat = defaultConfig.verticalityChat;
         this.multiplierChat = defaultConfig.multiplierChat;
         this.plusChat = defaultConfig.plusChat;
+        this.isRecalcByArmorAbsorption = defaultConfig.isRecalcByArmorAbsorption;
     }
 
     @Override
@@ -49,6 +52,11 @@ public class MovableChatClothConfig implements MovableChatConfigProvider, Config
     @Override
     public int getPlusChat() {
         return plusChat;
+    }
+
+    @Override
+    public boolean isRecalcByArmorAbsorption() {
+        return isRecalcByArmorAbsorption;
     }
 
 }
