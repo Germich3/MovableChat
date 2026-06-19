@@ -6,5 +6,6 @@ public interface MovableChatConfigProvider {
     int getVerticalityChat();
     int getMultiplierChat();
     int getPlusChat();
+    boolean isRecalcByArmorAbsorption();
 
 }
