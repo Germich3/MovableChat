@@ -25,7 +25,7 @@ public class MissingClothConfigScreen extends Screen {
                 CommonComponents.GUI_COPY_LINK_TO_CLIPBOARD,
                 (button) -> {
                     this.minecraft.keyboardHandler.setClipboard(Component.translatable("text.movablechat.config.error.clothconfig").getString());
-                    this.minecraft.getToastManager().addToast(
+                    this.minecraft.gui.toastManager().addToast(
                         new TutorialToast(
                             this.font,
                             TutorialToast.Icons.MOUSE,
@@ -43,7 +43,7 @@ public class MissingClothConfigScreen extends Screen {
         this.addRenderableWidget(
             Button.builder(
                 CommonComponents.GUI_BACK,
-                (button) -> this.minecraft.setScreen(previousScreen)
+                (button) -> this.minecraft.gui.setScreen(previousScreen)
             )
             .bounds(this.width / 2 - 100, 180, 200, 20)
             .build()
@@ -64,7 +64,7 @@ public class MissingClothConfigScreen extends Screen {
 
     @Override
     public void onClose() {
-        this.minecraft.setScreen(previousScreen);
+        this.minecraft.gui.setScreen(previousScreen);
     }
 
 }
