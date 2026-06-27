@@ -40,16 +40,11 @@ dependencies {
 	implementation "com.github.Germich3:Dtmngr:${project.dtmngr}"
 
 	//Shadows
-	shadow("com.github.Germich3:Dtmngr:$project.dtmngr") {
+	shadow ("com.github.Germich3:Dtmngr:$project.dtmngr") {
 		exclude group: "com.fasterxml.jackson.dataformat", module: "jackson-dataformat-csv"
 		exclude group: "org.apache.commons", module: "commons-configuration2"
 		exclude group: "com.h2database", module: "h2"
 		exclude group: "commons-dbutils", module: "commons-dbutils"
-	}
-
-	//api
-	api ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config}") {
-		exclude(group: "net.fabricmc.fabric-api")
 	}
 }
 
