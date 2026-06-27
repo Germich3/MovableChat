@@ -33,9 +33,9 @@ public abstract class OptionsMixin {
                 OptionInstance.noTooltip(),
                 (caption, value) -> Component.translatable("options.pixel_value", caption, value),
                 new OptionInstance.IntRange(-25, 787, false),
-                MovableChatConfigManager.getConfig().getVerticalityChat(),
+                MovableChatConfigManager.getConfig().verticalityChat,
                 (value) -> {
-                    MovableChatConfigManager.getConfig().setVerticalityChat(value);
+                    MovableChatConfigManager.getConfig().verticalityChat = value;
                     MovableChatConfigManager.save();
                 }
         );
@@ -44,9 +44,9 @@ public abstract class OptionsMixin {
                 (var) -> Tooltip.create(Component.translatable("text.movablechat.config.tooltip.RecalcByArmorAbsorption")),
                 OptionInstance.BOOLEAN_TO_STRING,
                 OptionInstance.BOOLEAN_VALUES,
-                MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption(),
+                MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption,
                 (value) -> {
-                    MovableChatConfigManager.getConfig().setRecalcByArmorAbsorption(value);
+                    MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption = value;
                     MovableChatConfigManager.save();
                 }
         );

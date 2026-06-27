@@ -20,8 +20,8 @@ public abstract class ChatComponentMixin {
 
 	@Unique
 	private int getOffset() {
-		int verticalityChat = MovableChatConfigManager.getConfig().getVerticalityChat();
-		int offsetCalcByArmorAbsorption = MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption() ? getOffsetCalcByArmorAbsorption() : 0;
+		int verticalityChat = MovableChatConfigManager.getConfig().verticalityChat;
+		int offsetCalcByArmorAbsorption = MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption ? getOffsetCalcByArmorAbsorption() : 0;
 		return verticalityChat + offsetCalcByArmorAbsorption;
 	}
 
