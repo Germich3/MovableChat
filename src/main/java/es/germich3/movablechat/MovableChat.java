@@ -1,6 +1,6 @@
 package es.germich3.movablechat;
 
-import es.germich3.movablechat.config.MovableChatConfig;
+import es.germich3.movablechat.config.MovableChatConfigManager;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
@@ -13,7 +13,7 @@ public class MovableChat implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		MovableChatConfig.getConfig();
+		MovableChatConfigManager.init();
 		LOGGER.info("MovableChat loaded successfully");
 	}
 

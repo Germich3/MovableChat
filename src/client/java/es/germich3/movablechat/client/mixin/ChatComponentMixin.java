@@ -3,7 +3,7 @@ package es.germich3.movablechat.client.mixin;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import es.germich3.movablechat.config.MovableChatConfig;
+import es.germich3.movablechat.config.MovableChatConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.ChatComponent;
 import org.joml.Matrix3x2f;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
 import java.util.function.Consumer;
 
 @Mixin(ChatComponent.class)
-public abstract class MovableChatMixin {
+public abstract class ChatComponentMixin {
 
 	@Shadow
 	@Final
@@ -41,13 +41,13 @@ public abstract class MovableChatMixin {
 
 	@Unique
 	private int getOffset() {
-		if (MovableChatConfig.getConfig().isAbsorptionAutoMoveEnabled()) {
+		if (MovableChatConfigManager.getConfig().isAbsorptionAutoMoveEnabled()) {
 			return getOffsetCalcByArmorAbsorption();
 		}
-		int verticalityChat = MovableChatConfig.getConfig().getVerticalityChat();
-		int multiplierChat = MovableChatConfig.getConfig().getMultiplierChat();
-		int plusChat = MovableChatConfig.getConfig().getPlusChat();
-		int offsetCalcByArmorAbsorption = MovableChatConfig.getConfig().isRecalcByArmorAbsorption() ? getOffsetCalcByArmorAbsorption() : 0;
+		int verticalityChat = MovableChatConfigManager.getConfig().getVerticalityChat();
+		int multiplierChat = MovableChatConfigManager.getConfig().getMultiplierChat();
+		int plusChat = MovableChatConfigManager.getConfig().getPlusChat();
+		int offsetCalcByArmorAbsorption = MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption() ? getOffsetCalcByArmorAbsorption() : 0;
 		return (verticalityChat * multiplierChat) + plusChat + offsetCalcByArmorAbsorption;
 	}
 

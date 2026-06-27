@@ -26,7 +26,7 @@ public class MovableChatClothConfig implements MovableChatConfigProvider, Config
     boolean isRecalcByArmorAbsorption;
 
     public MovableChatClothConfig() {
-        MovableChatDefaultConfig defaultConfig = new MovableChatDefaultConfig();
+        MovableChatConfig defaultConfig = new MovableChatConfig();
         this.isAbsorptionAutoMoveEnabled = defaultConfig.isAbsorptionAutoMoveEnabled;
         this.verticalityChat = defaultConfig.verticalityChat;
         this.multiplierChat = defaultConfig.multiplierChat;
@@ -57,6 +57,31 @@ public class MovableChatClothConfig implements MovableChatConfigProvider, Config
     @Override
     public boolean isRecalcByArmorAbsorption() {
         return isRecalcByArmorAbsorption;
+    }
+
+    @Override
+    public void setAbsorptionAutoMoveEnabled(boolean value) {
+        isAbsorptionAutoMoveEnabled = value;
+    }
+
+    @Override
+    public void setVerticalityChat(int value) {
+        verticalityChat = value;
+    }
+
+    @Override
+    public void setMultiplierChat(int value) {
+        multiplierChat = value;
+    }
+
+    @Override
+    public void setPlusChat(int value) {
+        plusChat = value;
+    }
+
+    @Override
+    public void setRecalcByArmorAbsorption(boolean value) {
+        isRecalcByArmorAbsorption = value;
     }
 
 }

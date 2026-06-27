@@ -8,4 +8,9 @@ public interface MovableChatConfigProvider {
     int getPlusChat();
     boolean isRecalcByArmorAbsorption();
 
+    void setAbsorptionAutoMoveEnabled(boolean value);
+    void setVerticalityChat(int value);
+    void setMultiplierChat(int value);
+    void setPlusChat(int value);
+    void setRecalcByArmorAbsorption(boolean value);
 }

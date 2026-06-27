@@ -3,7 +3,10 @@
 	"package": "es.germich3.movablechat.client.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"client": [
-		"MovableChatMixin"
+		"ChatComponentMixin",
+		"ChatOptionsScreenMixin",
+		"OptionsMixin",
+		"accessors.OptionsAccessor"
 	],
 	"injectors": {
 		"defaultRequire": 1
