@@ -66,7 +66,7 @@ public class MovableChatConfigManager {
 
     public static void save() {
         try {
-            JsonManager.save(FabricLoader.getInstance().getConfigDir(), MovableChat.MOD_ID, getInstance());
+            JsonManager.save(FabricLoader.getInstance().getConfigDir(), MovableChat.MOD_ID, getConfig());
         }
         catch (DataStorageException e) {
             MovableChat.LOGGER.error("Failed to save config", e);
