@@ -3,10 +3,8 @@ package es.germich3.movablechat.config;
 import es.germich3.exceptions.DataStorageException;
 import es.germich3.json.JsonManager;
 import es.germich3.movablechat.MovableChat;
-import es.germich3.movablechat.apis.clothconfig.ClothConfigApi;
 import es.germich3.movablechat.config.provider.MovableChatConfig;
 import es.germich3.movablechat.config.provider.MovableChatConfigProvider;
-import es.germich3.movablechat.utils.Utils;
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.nio.file.Files;
@@ -19,7 +17,7 @@ public class MovableChatConfigManager {
     private final MovableChatConfigProvider config;
 
     private MovableChatConfigManager() {
-        this.config = createConfig();
+        this.config = loadConfig();
     }
 
     public static synchronized void init() {
@@ -39,18 +37,6 @@ public class MovableChatConfigManager {
         return getInstance().config;
     }
 
-    private static MovableChatConfigProvider createConfig() {
-        if (Utils.checkIfClassExist("es.germich3.json.JsonManager")) {
-            return loadConfig();
-        }
-        else if (ClothConfigApi.isInstalled()) {
-            return ClothConfigApi.loadConfig();
-        }
-        else {
-            return new MovableChatConfig();
-        }
-    }
-
     private static MovableChatConfigProvider loadConfig() {
         try {
             Path configDir = FabricLoader.getInstance().getConfigDir();
@@ -66,7 +52,7 @@ public class MovableChatConfigManager {
 
     public static void save() {
         try {
-            JsonManager.save(FabricLoader.getInstance().getConfigDir(), MovableChat.MOD_ID, getInstance());
+            JsonManager.save(FabricLoader.getInstance().getConfigDir(), MovableChat.MOD_ID, getConfig());
         }
         catch (DataStorageException e) {
             MovableChat.LOGGER.error("Failed to save config", e);
