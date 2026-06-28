@@ -29,7 +29,7 @@ public abstract class OptionsMixin {
     )
     private void onConstructed(final Minecraft minecraft, final File workingDirectory, CallbackInfo ci) {
         chatPositionY = new OptionInstance<>(
-                "text.autoconfig.movablechat.option.verticalityChat",
+                "text.movablechat.config.verticalityChat",
                 OptionInstance.noTooltip(),
                 (caption, value) -> Component.translatable("options.pixel_value", caption, value),
                 new OptionInstance.IntRange(-25, 787, false),
@@ -40,8 +40,8 @@ public abstract class OptionsMixin {
                 }
         );
         isCalcByArmorAbsorption = new OptionInstance<>(
-                "text.movablechat.config.RecalcByArmorAbsorption",
-                (var) -> Tooltip.create(Component.translatable("text.movablechat.config.tooltip.RecalcByArmorAbsorption")),
+                "text.movablechat.config.isRecalcByArmorAbsorption",
+                (var) -> Tooltip.create(Component.translatable("text.movablechat.config.tooltip.isRecalcByArmorAbsorption")),
                 OptionInstance.BOOLEAN_TO_STRING,
                 OptionInstance.BOOLEAN_VALUES,
                 MovableChatConfigManager.getConfig().isRecalcByArmorAbsorption,
